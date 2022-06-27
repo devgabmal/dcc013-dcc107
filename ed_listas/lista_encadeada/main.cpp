@@ -25,8 +25,8 @@ int main()
     //   l.removeInicio();
 
     l.imprime();
-    cout << endl
-         << l.get(0);
-
+    l.set(5, 1000);
+    cout << endl;
+    l.imprime();
     return 0;
 }

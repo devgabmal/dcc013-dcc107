@@ -3,6 +3,35 @@
 
 using namespace std;
 
+void rotina_erro(int erro)
+{
+
+    cout << "ERRO: ";
+    switch (abs(erro))
+    {
+    case 1:
+        cout << "Lista Vazia!";
+        break;
+    case 2:
+        cout << "Indice negativo!";
+        break;
+    case 3:
+        cout << "Tentativa de delecao de elemento fora da lista!";
+        break;
+    case 4:
+        cout << "Tentativa de busca de elemento fora da lista!";
+        break;
+    case 5:
+        cout << "Tentativa de edicao de elemento fora da lista!";
+        break;
+    default:
+        break;
+    }
+
+    if (erro < 0)
+        exit(erro);
+}
+
 ListaEncad::ListaEncad()
 {
     primeiro = NULL;
@@ -75,7 +104,7 @@ void ListaEncad::removeInicio()
         delete p;
     }
     else
-        cout << "ERRO: Lista vazia!";
+        rotina_erro(1);
 }
 
 void ListaEncad::removeFinal()
@@ -97,20 +126,18 @@ void ListaEncad::removeFinal()
         delete p;
     }
     else
-        cout << "ERRO: Lista vazia!";
+        rotina_erro(1);
 }
 
 void ListaEncad::removeK(int k)
 {
     if (primeiro == NULL) // Lista vazia
     {
-        cout << "ERRO: Lista vazia!";
-        return;
+        rotina_erro(-1);
     }
     if (k < 0) // Índice negativo
     {
-        cout << "ERRO: Indice negativo!";
-        return;
+        rotina_erro(-2);
     }
     if (k == 0 && primeiro->getProx() == NULL) // Há apenas um nó e deseja-se apagá-lo
     {
@@ -131,8 +158,7 @@ void ListaEncad::removeK(int k)
     }
     if (p->getProx() == NULL && (i < k)) // Chegou ao fim da lista, e o índice mais um é superior ao tamanho da lista
     {
-        cout << "ERRO: Tentativa de delecao de elemento fora da lista!";
-        return;
+        rotina_erro(-3);
     }
     if (penultimo == NULL)              // Há mais de um nó na lista, mas o índice a apagar é 0
         primeiro = primeiro->getProx(); // Define o primeiro nó como o próximo
@@ -146,13 +172,13 @@ int ListaEncad::get(int k)
 {
     if (primeiro == NULL) // Lista vazia
     {
-        cout << "ERRO: Lista vazia!";
-        exit(1);
+        rotina_erro(-1);
+        return 0;
     }
     if (k < 0) // Índice negativo
     {
-        cout << "ERRO: Indice negativo!";
-        exit(2);
+        rotina_erro(-2);
+        return 0;
     }
     if (k == 0)
     {
@@ -169,11 +195,42 @@ int ListaEncad::get(int k)
     }
     if (p->getProx() == NULL && (i < k)) // Chegou ao fim da lista, e o índice mais um é superior ao tamanho da lista
     {
-        cout << "ERRO: Tentativa de busca de elemento fora da lista!";
-        exit(3);
+        rotina_erro(-4);
+        return 0;
     }
     else // Há mais de um nó na lista e o índice a buscar é maior que 0
         return p->getInfo();
+}
+
+void ListaEncad::set(int k, int val)
+{
+    if (primeiro == NULL) // Lista vazia
+    {
+        rotina_erro(-1);
+    }
+    if (k < 0) // Índice negativo
+    {
+        rotina_erro(-2);
+    }
+    if (k == 0)
+    {
+        primeiro->setInfo(val);
+    }
+
+    No *p = primeiro;
+    int i = 0;
+
+    // Caminha até o final
+    for (i = 0; p->getProx() != NULL && i < k; i++)
+    {
+        p = p->getProx(); // Caminha para próximo nó
+    }
+    if (p->getProx() == NULL && (i < k)) // Chegou ao fim da lista, e o índice mais um é superior ao tamanho da lista
+    {
+        rotina_erro(-5);
+    }
+    else // Há mais de um nó na lista e o índice a buscar é maior que 0
+        p->setInfo(val);
 }
 
 bool ListaEncad::busca(int val)
