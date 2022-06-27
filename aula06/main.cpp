@@ -4,6 +4,9 @@
 
 using namespace std;
 
+#define TAM 2
+
+/*
 void testesQ1_3()
 {
     ListaCont l(10);
@@ -46,11 +49,47 @@ void testesQ1_3()
     l2.imprime();
     l3.imprime();
 }
+*/
 
 int main()
 {
-
     // testesQ1_3();
+
+    ListaCont l(TAM);
+
+    for (int i = 0; i < TAM; i++)
+    {
+        l.insereFinal(Ponto(rand() % 100 + 1, rand() % 100 + 1));
+    }
+
+    // l.set(3, Ponto(4, 7));
+    // l.set(TAM - 1, Ponto(9, 9));
+    // l.removeFinal();
+    // l.insereFinal(Ponto());
+    // l.removeInicio();
+    // l.insereK(1, Ponto(2, 2));
+
+    // l.insereValores(TAM);
+
+    l.imprime();
+    cout << endl
+         << "\t";
+    for (int i = 0; i < l.numNos(); i++)
+        cout << "(" << l.get(i).getX() << ", " << l.get(i).getY() << ")"
+             << "\t";
+    cout << endl;
+    for (int i = 0; i < l.numNos(); i++)
+    {
+        cout << "(" << l.get(i).getX() << ", " << l.get(i).getY() << ")"
+             << "\t";
+        for (int j = 0; j < l.numNos(); j++)
+        {
+            Ponto origem = l.get(i);
+            Ponto destino = l.get(j);
+            cout << origem.distancia(&destino) << "\t";
+        }
+        cout << endl;
+    }
 
     return 0;
 }

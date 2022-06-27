@@ -8,10 +8,19 @@ class Ponto
 {
 private:
     float x, y;
+
 public:
-    Ponto() {};
-    Ponto(float xx, float yy) { x = xx; y = yy; };
-    ~Ponto() {};
+    Ponto()
+    {
+        x = 0;
+        y = 0;
+    };
+    Ponto(float xx, float yy)
+    {
+        x = xx;
+        y = yy;
+    };
+    ~Ponto(){};
     float getX() { return x; };
     float getY() { return y; };
     void setX(float xx) { x = xx; };

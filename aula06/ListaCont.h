@@ -13,7 +13,7 @@ public:
     ListaCont(int tam);
     ~ListaCont();
 
-    int get(int k);
+    Ponto get(int k);
     void set(int k, Ponto pt);
     void insereFinal(Ponto pt);
     void insereK(int k, Ponto pt);
@@ -23,9 +23,8 @@ public:
     void removeInicio();
     void imprime();
     int numNos();
-    // int buscaMaior(int val);
     void limpar();
-    void insereValores(int tam, Ponto vet[]);
+    void insereValores(int tam);
 };
 
 #endif // LISTACONT_H_INCLUDED

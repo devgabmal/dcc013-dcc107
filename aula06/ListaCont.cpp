@@ -48,7 +48,7 @@ void ListaCont::insereFinal(Ponto pt)
         cout << "ERRO: Vetor Cheio!" << endl;
         exit(1);
     }
-    vet[n] = val;
+    vet[n] = pt;
     n = n + 1;
 }
 
@@ -114,28 +114,9 @@ void ListaCont::removeInicio()
     removeK(0);
 }
 
-void ListaCont::imprime()
-{
-    cout << "== Impressão da lista ==" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cout << i << ": " << vet[i] << endl;
-    }
-}
-
 int ListaCont::numNos()
 {
     return n;
-}
-
-int ListaCont::buscaMaior(int val)
-{
-    for (int i = 0; i < n; i++)
-    {
-        if (vet[i] > val)
-            return i;
-    }
-    return -1;
 }
 
 void ListaCont::limpar()
@@ -143,7 +124,7 @@ void ListaCont::limpar()
     n == 0;
 }
 
-void ListaCont::insereValores(int tam, int vet[])
+void ListaCont::insereValores(int tam)
 {
     if (n == max)
     {
@@ -155,11 +136,21 @@ void ListaCont::insereValores(int tam, int vet[])
         cout << "ERRO: Vetor nao comporta todos os valores lidos!" << endl;
         exit(1);
     }
-    cout << "Digite " << tam << " valores:" << endl;
+    cout << "Digite " << tam << " coordenadas:" << endl;
     for (int i = 0; i < tam; i++)
     {
-        int v;
-        cin >> v;
-        insereFinal(v);
+        int x, y;
+        cin >> x;
+        cin >> y;
+        insereFinal(Ponto(x, y));
+    }
+}
+
+void ListaCont::imprime()
+{
+    cout << "== Impressão da lista ==" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << i << ": (" << vet[i].getX() << ", " << vet[i].getY() << ")" << endl;
     }
 }
