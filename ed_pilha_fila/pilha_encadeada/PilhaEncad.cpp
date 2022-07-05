@@ -11,7 +11,7 @@ PilhaEncad::PilhaEncad()
 PilhaEncad::~PilhaEncad()
 {
     No *p = topo;
-    while (p != NULL)
+    while (topo != NULL)
     {
         topo = p->getProx();
         delete p;
