@@ -15,9 +15,6 @@ void rotina_erro(int erro)
     case 2:
         cout << "Indice negativo!";
         break;
-    case 3:
-        cout << "Tentativa de delecao de elemento fora da lista!";
-        break;
     case 4:
         cout << "Tentativa de busca de elemento fora da lista!";
         break;
@@ -76,14 +73,32 @@ void ListaOrdEncad::insere(int val)
 
 void ListaOrdEncad::remove(int val)
 {
-    if (primeiro != NULL)
+    No *ant = NULL;
+    No *p = primeiro;
+
+    if (primeiro == NULL)
+        rotina_erro(-1);
+
+    while (p != NULL)
     {
-        No *p = primeiro;
-        primeiro = primeiro->getProx();
-        delete p;
+        if (p->getInfo() == val)
+        {
+            if (ant == NULL)
+            {
+                primeiro = p;
+                delete ant;
+            }
+            else
+            {
+                No *prox = p->getProx();
+                ant->setProx(prox);
+                delete p;
+                return;
+            }
+        }
+        ant = p;
+        p = p->getProx(); // Caminha para próximo nó
     }
-    else
-        rotina_erro(1);
 }
 
 int ListaOrdEncad::get(int k)

@@ -14,7 +14,7 @@ int numAleatorio(int a, int b)
 
 int main()
 {
-    srand(time(NULL));
+    // srand(time(NULL));
 
     ListaOrdEncad *lista = new ListaOrdEncad();
     // int n;
@@ -34,7 +34,11 @@ int main()
     lista->imprime();
 
     // Ex03
-    cout << boolalpha << lista->busca(-4);
+    cout << boolalpha << lista->busca(-7) << endl;
+
+    lista->remove(-7);
+
+    lista->imprime();
 
     delete lista;
     return 0;
