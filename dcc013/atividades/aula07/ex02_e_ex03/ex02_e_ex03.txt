@@ -1,0 +1,4 @@
+Os exercícios 02 e 03 sobre lista ordenada encadeada foram resolvidos
+diretamente no arquivo de implementação desses TADs, que podem ser
+encontrados em:
+dcc013-dcc107\dcc013\ed_lista_ordenada\lista_ordenada_encadeada
