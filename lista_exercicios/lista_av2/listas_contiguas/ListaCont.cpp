@@ -143,8 +143,10 @@ bool ListaCont::aumentaCapacidade(int novoMax)
         int *novoVet = new int[novoMax];
         for (int i = 0; i < n; i++)
             novoVet[i] = vet[i];
+        int *aux = vet;
         vet = novoVet;
         max = novoMax;
+        delete[] aux;
         return true;
     }
 }
