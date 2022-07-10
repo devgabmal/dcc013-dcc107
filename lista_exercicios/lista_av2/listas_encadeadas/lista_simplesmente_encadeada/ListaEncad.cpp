@@ -348,3 +348,25 @@ void ListaEncad::removeValor(int val)
         cout << "ERRO: Valor nao encontrado!" << endl;
     }
 }
+
+ListaEncad *ListaEncad::vetor2Lista(int n, int *vet)
+{
+    ListaEncad *novaLista = new ListaEncad;
+    for (int i = 0; i < n; i++)
+        novaLista->insereFinal(vet[i]);
+    return novaLista;
+}
+
+int *ListaEncad::lista2Vetor(ListaEncad *l)
+{
+    int *novoVet = new int[l->getComprimento()];
+    int i = 0;
+    No *p = l->primeiro;
+    while (p != NULL)
+    {
+        novoVet[i] = p->getInfo();
+        i++;
+        p = p->getProx();
+    }
+    return novoVet;
+}

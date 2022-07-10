@@ -22,6 +22,8 @@ public:
     void insereOrdenado(int val);
     bool igual(ListaEncad *l2);
     void removeValor(int val);
+    ListaEncad *vetor2Lista(int n, int *vet);
+    int *lista2Vetor(ListaEncad *l);
 
 private:
     No *primeiro; // Ponteiro para o primeiro nó

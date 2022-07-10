@@ -52,5 +52,18 @@ int main()
     l.removeValor(7);
     l.imprime();
 
+    // Ex17 - 15 minutos e 52 segundos
+    int *vet = new int[n];
+    for (int i = 0; i < n; i++)
+        vet[i] = numAleatorio(-9, 50);
+
+    ListaEncad *l5 = l.vetor2Lista(n, vet);
+    l5->imprime();
+
+    int *vet2 = l5->lista2Vetor(l5);
+    for (int i = 0; i < n; i++)
+        cout << vet[i] << "\t";
+    cout << endl;
+
     return 0;
 }
