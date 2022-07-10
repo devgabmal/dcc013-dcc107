@@ -1,0 +1,4 @@
+O exercício 07 sobre lista duplamente encadeada foi resolvido
+diretamente no arquivo de implementação desse TAD, que pode ser
+encontrado em:
+dcc013-dcc107\dcc013\ed_listas\lista_encadeada_dupla
