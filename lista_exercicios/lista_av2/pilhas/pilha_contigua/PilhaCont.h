@@ -13,4 +13,5 @@ public:
     void empilha(int val); // insere No no Topo
     int desempilha();      // elimina No do Topo
     bool vazia();
+    void imprime();
 };

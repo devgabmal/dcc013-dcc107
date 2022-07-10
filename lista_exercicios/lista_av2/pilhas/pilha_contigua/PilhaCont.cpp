@@ -19,7 +19,7 @@ void PilhaCont::dobraCapacidade()
 {
     int novoMax = max * 2;
     int *novoVet = new int[novoMax];
-    for (int i = 0; i < topo; i++)
+    for (int i = 0; i <= topo; i++)
         novoVet[i] = vet[i];
     int *aux = vet;
     vet = novoVet;
@@ -63,4 +63,20 @@ int PilhaCont::desempilha()
 bool PilhaCont::vazia()
 {
     return (topo == -1);
+}
+
+void PilhaCont::imprime()
+{
+    if (topo == -1)
+        cout << "Pilha Vazia!" << endl;
+    else
+    {
+        int i = topo;
+        while (i >= 0)
+        {
+            cout << vet[i] << "\t";
+            i--;
+        }
+        cout << endl;
+    }
 }
