@@ -17,7 +17,7 @@ Par::~Par()
     prox = NULL;
 }
 
-int Par::getCoef()
+float Par::getCoef()
 {
     return coef;
 }
@@ -32,7 +32,7 @@ Par *Par::getProx()
     return prox;
 }
 
-void Par::setCoef(int val)
+void Par::setCoef(float val)
 {
     coef = val;
 }

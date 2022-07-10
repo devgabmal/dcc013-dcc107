@@ -8,14 +8,14 @@ public:
     ~Par();
 
     int getOrd();
-    int getCoef();
+    float getCoef();
     Par *getProx();
     void setOrd(int val);
-    void setCoef(int val);
+    void setCoef(float val);
     void setProx(Par *p);
 
 private:
-    int coef;
+    float coef;
     int ord;
     Par *prox; // Ponteiro para o próximo par
 };
