@@ -1,9 +1,16 @@
 #include <iostream>
+#include <cstdlib> ///rand()
+#include <ctime>   ///time()
 #include "FilaEncad.h"
 
 #define TAM 10
 
 using namespace std;
+
+int numAleatorio(int a, int b)
+{
+    return a + rand() % (b - a + 1); /// retorna um numero inteiro aleatório entre a e b
+}
 
 int compara(FilaEncad *f1, FilaEncad *f2)
 {
@@ -15,9 +22,23 @@ int compara(FilaEncad *f1, FilaEncad *f2)
         return 0;
 }
 
+FilaEncad *geraFilaPositiva(FilaEncad *fila)
+{
+    FilaEncad *novaFila = new FilaEncad;
+    while (!fila->vazia())
+    {
+        int val = fila->desenfileira();
+        if (val >= 0)
+            novaFila->enfileira(val);
+    }
+    return novaFila;
+}
+
 int main()
 {
-    FilaEncad f, f2;
+    srand(time(NULL));
+
+    FilaEncad f, f2, f3;
 
     cout << "Enfileirando:" << endl;
     for (int i = 0; i < TAM; i++)
@@ -43,6 +64,22 @@ int main()
     cout << "Imprimindo:" << endl;
     for (int i = 0; i < TAM; i++)
         cout << f.desenfileira() << "\t";
+    cout << endl;
+
+    // Ex19 - 11 minutos e 11 segundos
+    cout << "Enfileirando:" << endl;
+    for (int i = 0; i < TAM; i++)
+    {
+        int val = numAleatorio(-50, 50);
+        f3.enfileira(val);
+        cout << val << "\t";
+    }
+    cout << endl;
+    FilaEncad *f4 = geraFilaPositiva(&f3);
+    cout << "Imprimindo:" << endl;
+    while (!f4->vazia())
+        cout << f4->desenfileira() << "\t";
+    cout << endl;
 
     return 0;
 }
