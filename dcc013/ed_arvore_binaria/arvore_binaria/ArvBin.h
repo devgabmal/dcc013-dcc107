@@ -1,28 +1,35 @@
 #ifndef ARVBIN_H_INCLUDED
 #define ARVBIN_H_INCLUDED
-
 #include "NoArv.h"
+#include "FilaEncad.h"
 
 class ArvBin
 {
-private:
-    NoArv *raiz; // ponteiro para o nó raiz da árvore
-    void auxImprime(NoArv *p);
-    bool auxBusca(NoArv *raiz, int val);
-    NoArv *libera(NoArv *p);
-    int auxAltura(NoArv *p);
-
 public:
-    ArvBin();
-    ~ArvBin();
-    int getRaiz();
-    // cria novo nó como raiz das sub-árvores à
-    // esquerda (sae) e à direita (sad)
-    void cria(int val, ArvBin *sae, ArvBin *sad);
-    bool vazia(); // verifica se a árvore está vazia
-    void imprime();
-    bool busca(int val);
-    int altura();
+  ArvBin();
+  ~ArvBin();
+  int getRaiz();
+  void cria(int x, ArvBin *sae, ArvBin *sad);
+  void anulaRaiz();
+  bool vazia(); // verifica se a �rvore est� vazia
+  bool busca(int x);
+  void preOrdem();
+  void montaArvore();
+  void insere(int x);
+  int altura();
+  void percursoLargura();
+
+private:
+  NoArv *raiz; // ponteiro para o No raiz da �rvore
+
+  NoArv *libera(NoArv *p);
+  bool auxBusca(NoArv *p, int x);
+  void auxPreOrdem(NoArv *p);
+  NoArv *auxMontaArvore();
+  void auxImpNivel(NoArv *p, int atual, int k);
+  void auxInverte(NoArv *p);
+  NoArv *auxInsere(NoArv *p, int x);
+  int auxAltura(NoArv *p);
 };
 
 #endif // ARVBIN_H_INCLUDED
