@@ -21,6 +21,7 @@ public:
   int nFolhas();
   bool ehCheia();
   void removeFolhas();
+  void infoNo(int k);
   int nNosK(int k);
 
 private:

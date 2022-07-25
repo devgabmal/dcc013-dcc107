@@ -88,12 +88,19 @@ int main()
     // cout << boolalpha << arvCheia->ehCheia() << endl;
     // cout << boolalpha << arvCompleta->ehCheia() << endl;
 
+    // Ex08
+    arvVazia->infoNo(10);
+    arv1No->infoNo(13);
+    arv1Folha->infoNo(17);
+    arvCheia->infoNo(14);
+    arvCompleta->infoNo(24);
+
     // Ex09
-    cout << arvVazia->nNosK(1) << endl;
-    cout << arv1No->nNosK(1) << endl;
-    cout << arv1Folha->nNosK(1) << endl;
-    cout << arvCheia->nNosK(1) << endl;
-    cout << arvCompleta->nNosK(1) << endl;
+    // cout << arvVazia->nNosK(2) << endl;
+    // cout << arv1No->nNosK(2) << endl;
+    // cout << arv1Folha->nNosK(2) << endl;
+    // cout << arvCheia->nNosK(2) << endl;
+    // cout << arvCompleta->nNosK(2) << endl;
 
     return 0;
 }
